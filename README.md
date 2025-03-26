@@ -83,6 +83,71 @@ Copy
 for card in card_number_generator(1, 5):
     print(card)  # "0000 0000 0000 0001", ..., "0000 0000 0000 0005"
 ```
+
+# 🔐 Модуль маскировки данных
+Функции
+```
+mask_card_number(card_number: str) -> str
+```
+
+# Маскирует номер карты, оставляя последние 4 цифры.
+
+## Пример:
+```
+python
+Copy
+from src.masking_functions import mask_card_number
+masked_card = mask_card_number("1234567890123456")  # "************3456"
+```
+# 📊 Модуль обработки транзакций
+Функции
+```filter_by_state(data: list, state: str = 'EXECUTED') -> list
+```
+
+# Фильтрует список операций по состоянию.
+
+## Параметры:
+
+data - список операций
+
+state - состояние для фильтрации (по умолчанию 'EXECUTED')
+
+# Пример:
+```
+python
+Copy
+from src.processing import filter_by_state
+
+transactions = [
+    {'state': 'EXECUTED', 'amount': 100},
+    {'state': 'CANCELED', 'amount': 50}
+]
+
+executed = filter_by_state(transactions)  # Только EXECUTED
+sort_by_date(list_of_dicts: list, reverse: bool = True) -> list
+```
+# Сортирует операции по дате.
+
+## Параметры:
+```
+list_of_dicts - список операций
+
+reverse - сортировка по убыванию (True) или возрастанию (False)
+```
+## Пример:
+```
+python
+Copy
+from src.processing import sort_by_date
+
+transactions = [
+    {'date': '2023-01-01T12:00:00'},
+    {'date': '2023-01-15T08:30:00'}
+]
+
+sorted_trans = sort_by_date(transactions)  # От новых к старым
+```
+    
 # 🧪 Тестирование
 Запуск всех тестов:
 ```
