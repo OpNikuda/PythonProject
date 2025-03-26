@@ -7,7 +7,7 @@
 
 1. Клонируйте репозиторий:
 ```bash
-git clone https://github.com/ваш_логин/имя_репозитория.git
+git clone https://github.com/OpNikuda/PythonProject.git
 cd имя_репозитория
 ```
 Установите зависимости:
