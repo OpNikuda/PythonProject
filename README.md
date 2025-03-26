@@ -1,4 +1,4 @@
-# Маскировка номеров карт и счетов (Masking Library)
+# Маскировка номеров карт и счетов
 
 ## Описание проекта
 
@@ -63,6 +63,6 @@ try:
     masked_invalid = mask_account_card(invalid_payment)
 except ValueError as e:
     print(f"Ошибка: {e}") # Вывод: Ошибка: Неверный формат номера.
-
+```
 ## Лицензия
 Nikonorov.M
