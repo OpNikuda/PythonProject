@@ -64,5 +64,93 @@ try:
 except ValueError as e:
     print(f"Ошибка: {e}") # Вывод: Ошибка: Неверный формат номера.
 ```
+
+# 🏦 Генераторы для работы с банковскими данными
+
+Модуль `generators` предоставляет инструменты для обработки транзакций и генерации финансовых данных.
+
+## 📦 Установка
+
+```bash
+pip install -e .
+```
+
+## 🛠 Модуль `generators`
+
+### 🔎 `filter_by_currency(transactions, currency)`
+Фильтрует транзакции по валюте операций.
+
+**Аргументы:**
+| Параметр | Тип | Описание |
+|----------|-----|----------|
+| `transactions` | `List[Dict]` | Список транзакций |
+| `currency` | `str` | Код валюты (например, "USD") |
+
+**Возвращает:**
+- `Iterator[Dict]` - генератор транзакций в указанной валюте
+
+**Пример:**
+```python
+from generators import filter_by_currency
+
+transactions = [
+    {
+        "id": 1,
+        "operationAmount": {
+            "amount": "100.00",
+            "currency": {"code": "USD"}
+        }
+    },
+    {
+        "id": 2,
+        "operationAmount": {
+            "amount": "200.00",
+            "currency": {"code": "EUR"}
+        }
+    }
+]
+
+# Получаем только USD-транзакции
+for transaction in filter_by_currency(transactions, "USD"):
+    print(transaction["id"])  # Выведет: 1
+```
+
+### 📝 `transaction_descriptions(transactions)`
+Извлекает описания транзакций.
+
+**Пример:**
+```python
+from generators import transaction_descriptions
+
+data = [
+    {"description": "Payment for services"},
+    {"description": "Money transfer"}
+]
+
+descriptions = transaction_descriptions(data)
+print(next(descriptions))  # "Payment for services"
+```
+
+### 💳 `card_number_generator(start, end)`
+Генерирует номера карт в формате `XXXX XXXX XXXX XXXX`.
+
+**Пример генерации 5 номеров:**
+```python
+from generators import card_number_generator
+
+for card in card_number_generator(1, 5):
+    print(card)
+
+# 0000 0000 0000 0001
+# 0000 0000 0000 0002
+# ... 
+# 0000 0000 0000 0005
+```
+
+## 🧪 Тестирование
+```bash
+pytest --cov=generators tests/
+```
+
 ## Лицензия
 Nikonorov.M
