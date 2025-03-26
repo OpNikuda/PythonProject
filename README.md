@@ -22,8 +22,6 @@ mask_card_number(card_number: str) -> str
 # Маскирует номер карты, оставляя последние 4 цифры.
 ## Пример:
 ```
-python
-Copy
 mask_card_number("1234567890123456")  # "************3456"
 mask_account_number(account_number: str) -> str
 ```
