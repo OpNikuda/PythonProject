@@ -6,14 +6,11 @@
 ## 📦 Установка
 
 1. Клонируйте репозиторий:
-```bash
+```
 git clone https://github.com/OpNikuda/PythonProject.git
-cd имя_репозитория
 ```
 Установите зависимости:
 ```
-bash
-Copy
 pip install -r requirements.txt
 ```
 🔐 Модуль маскировки данных
@@ -34,8 +31,6 @@ mask_account_number(account_number: str) -> str
 # Маскирует номер счета, оставляя первые и последние 4 цифры.
 ## Пример:
 ```
-python
-Copy
 mask_account_number("12345678901234567890")  # "1234**********7890"
 mask_account_card(payment_info: str) -> str
 ```
@@ -44,8 +39,6 @@ mask_account_card(payment_info: str) -> str
 
 ## Пример:
 ```
-python
-Copy
 mask_account_card("1234567890123456")  # "************3456"
 mask_account_card("12345678901234567890")  # "1234**********7890"
 ```
@@ -58,8 +51,6 @@ filter_by_currency(transactions: list, currency: str) -> Iterator[dict]
 # Фильтрует транзакции по валюте.
 ## Пример:
 ```
-python
-Copy
 for transaction in filter_by_currency(transactions, "USD"):
     print(transaction["id"])
 transaction_descriptions(transactions: list) -> Iterator[str]
@@ -68,8 +59,6 @@ transaction_descriptions(transactions: list) -> Iterator[str]
 # Извлекает описания транзакций.
 ## Пример:
 ```
-python
-Copy
 for desc in transaction_descriptions(transactions):
     print(desc)
 card_number_generator(start: int, end: int) -> Iterator[str]
@@ -78,8 +67,6 @@ card_number_generator(start: int, end: int) -> Iterator[str]
 # Генерирует номера карт в заданном диапазоне.
 ## Пример:
 ```
-python
-Copy
 for card in card_number_generator(1, 5):
     print(card)  # "0000 0000 0000 0001", ..., "0000 0000 0000 0005"
 ```
@@ -99,8 +86,6 @@ state - состояние для фильтрации (по умолчанию 
 
 # Пример:
 ```
-python
-Copy
 from src.processing import filter_by_state
 
 transactions = [
@@ -121,8 +106,6 @@ reverse - сортировка по убыванию (True) или возрас�
 ```
 ## Пример:
 ```
-python
-Copy
 from src.processing import sort_by_date
 
 transactions = [
@@ -154,8 +137,6 @@ card_number - номер карты (может содержать пробел�
 
 ## Пример:
 ```
-python
-Copy
 from src.masking_functions import get_mask_card_number
 ```
 ```
@@ -179,26 +160,23 @@ account_number - номер счета (может содержать пробе
 Пустую строку для невалидных номеров
 
 ## Пример:
-
-python
-Copy
+```
 from src.masking_functions import get_mask_account
 masked = get_mask_account("123456789012")  # "********9012"
 masked = get_mask_account(123456789012)    # "********9012"
-    
+```
+
 # 🧪 Тестирование
 Запуск всех тестов:
 ```
-bash
-Copy
 pytest --cov=src --cov=generators --cov-report=term-missing
 ```
+
 # Проверка стиля кода:
 ```
-bash
-Copy
 flake8 src/ generators/
 ```
+
 # 📜 Лицензия
 MIT © Nikonorov.M
 
