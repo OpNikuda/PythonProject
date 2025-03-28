@@ -1,5 +1,5 @@
 import pytest
-from generators import filter_by_currency
+from src.generators import filter_by_currency
 
 @pytest.fixture
 def sample_transactions():
@@ -45,7 +45,7 @@ def test_missing_currency_field():
         list(filter_by_currency([{"operationAmount": {}}], "USD"))
 
 
-from generators import transaction_descriptions
+from src.generators import transaction_descriptions
 
 @pytest.mark.parametrize("transactions,expected", [
     ([{"description": "Test 1"}], ["Test 1"]),
@@ -60,7 +60,7 @@ def test_missing_description_field():
         next(transaction_descriptions([{"no_description": ""}]))
 
 
-from generators import card_number_generator
+from src.generators import card_number_generator
 
 @pytest.mark.parametrize("start,end,expected", [
     (1, 1, ["0000 0000 0000 0001"]),
