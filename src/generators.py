@@ -37,3 +37,4 @@ def card_number_generator(start: int, end: int):
         # Разбиваем на группы по 4 цифры
         yield f"{num_str[:4]} {num_str[4:8]} {num_str[8:12]} {num_str[12:16]}"
 
+#
