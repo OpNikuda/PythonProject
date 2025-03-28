@@ -1,0 +1,55 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*~
+*.swp
+
+# Distribution / packaging
+.eggs/
+dist/
+sdist/
+*.egg-info/
+build/
+wheels/
+*.whl
+MANIFEST
+
+# PyInstaller
+*.manifest
+*.spec
+
+# Исключаем папку с виртуальным окружением
+.venv/
+venv/
+
+# Интерпретатор Python и связанные с ним файлы
+python
+python3
+*.log
+*.out
+
+# Опционально (зависит от проекта)
+# *.log
+# *.ini
+# local_settings.py
+# db.sqlite3
+
+# Jupyter Notebook
+.ipynb_checkpoints/
+*.ipynb
+
+# VS Code
+.vscode/
+
+# PyCharm
+.idea/
+*.iml
+*.iws
+
+# OS X
+.DS_Store
+
+# Temporary files
+*.tmp
